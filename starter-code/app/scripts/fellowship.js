@@ -148,13 +148,13 @@ function hornOfGondor() {
   alert("ALERT ALERT ALERT! Someone has blown the horn of Gondor!")
   alert("O dear Boromir has been killed by Uruk-hai! #RIP")
   boromir.style.setProperty("text-decoration", "line-through");
-  theFellowship.removeChild(boromir)
+  boromir.parentNode.removeChild(boromir)
 }
 hornOfGondor()
 
 // Part 10
 var mordor = body.querySelectorAll('article')[2];
-var sam = rivendell.querySelectorAll('li')[6]
+var sam = rivendell.querySelectorAll('li')[5]
 function itsDangerousToGoAlone(){
   // take Frodo and Sam out of the fellowship and move them to Mordor
   // add a div with an id of 'mount-doom' to Mordor
@@ -185,25 +185,20 @@ function thereAndBackAgain() {
   // remove Gollum and the Ring from the document
   // remove all the buddies from the document
   // Move all the hobbits back to the shire
-  theOneRing.gollum.removeChild(theOneRing)
-  gollum.mountDoom.removeChild(gollum)
+  theOneRing.parentNode.removeChild(theOneRing)
+  gollum.parentNode.removeChild(gollum)
 
   var allBuddies = body.querySelector('.buddy')
   var buddyList = document.createElement('ul')
   for(var i = 0; i < allBuddies.length; i++) {
-    var buddy = document.createElement('li');
-    buddy.innerText = allBuddies[i];
-    buddyList.appendChild(buddy);
+    buddyList.appendChild(allBuddies[i]);
   }
-  rivendell.appendChild(buddyList);
-  buddyList.rivendell.removeChild(buddyList);
+  buddyList.parentNode.removeChild(buddyList);
 
-  var allHobbits = body.querySelector('.hobbit')
+  var allHobbits = body.querySelectorAll('.hobbit')
   var hobbitList2 = document.createElement('ul');
   for(var j = 0; j < allHobbits.length; j++) {
-    var hobbit = document.createElement('li');
-    hobbit.innerText = allHobbits[j];
-    hobbitList2.appendChild(hobbit);
+    hobbitList2.appendChild(allHobbits[j]);
   }
   theShire.appendChild(hobbitList2)
 }
